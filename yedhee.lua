@@ -13,21 +13,25 @@ end)()
 function checklevel()
     local level = game.Players.LocalPlayer.Data.Level.Value
     if level == 2300 or level <= 2324 then
-    Mons = "Cocoa Warrior [Lv. 2325]"
+    Mons = "Cocoa Warrior [Lv. 2300]"
     Q = "ChocQuest1"
     QN = 1
+    CF = CFrame.new(81.6123581, 73.4885483, -12310.6084, -0.493183434, 0, 0.86992532, 0, 1, 0, -0.86992532, 0, -0.493183434)
     elseif level == 2325 or level <= 2349 then
-    Mons = "Chocolate Bar Battler [Lv. 2350]"
+    Mons = "Chocolate Bar Battler [Lv. 2325]"
     Q = "ChocQuest1"
     QN = 2
+    CF = CFrame.new(465.203979, 83.0556335, -12584.0361, -0.971542656, 0, -0.236864984, 0, 1, 0, 0.236864984, 0, -0.971542656)
     elseif level == 2350 or level <= 2374 then
-    Mons = "Sweet Thief [Lv. 2375]"
+    Mons = "Sweet Thief [Lv. 2350]"
     Q = "ChocQuest2"
     QN = 1
+    CF = CFrame.new(70.9168167, 77.2218246, -12641.0205, -0.923700452, 0, 0.38311547, 0, 1, 0, -0.38311547, 0, -0.923700452)
     elseif level >= 2375 then
-    Mons = "Candy Rebel [Lv. 2400]"
+    Mons = "Candy Rebel [Lv. 2375]"
     Q = "ChocQuest2"
     QN = 2
+    CF = CFrame.new(136.819168, 77.2219086, -12879.0732, 0.977967858, -2.05951114e-08, -0.208755463, 7.68816621e-10, 1, -9.50548866e-08, 0.208755463, 9.28001214e-08, 0.977967858)
 end
 end
 
@@ -42,14 +46,15 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Green
 local venyx = library.new("5TX4Z | BF 20 Bath | For New Update", 5013109572)
  
  
-local page = venyx:addPage("Auto Farm", 5012544693)
+local page = venyx:addPage("Auto Farm", 7251993295)
 local farm = page:addSection("Auto Farm")
-local theme = venyx:addPage("Theme", 5012544693)
+local page = venyx:addPage("Auto Stats", 7252023075)
+local stat = page:addSection("Auto Stats")
+local theme = venyx:addPage("Theme", 7040347038)
 local colors = theme:addSection("Colors")
 
 farm:addToggle("Auto Farm", "", function(value)
 _G.Fa = value
-_G.Fa2 = value
 _G.Fa3 = value
 end)
 
@@ -76,24 +81,103 @@ end, function()
 print("Changed Keybind")
 end)
 
+stat:addToggle("Melee", "", function(value)
+    _G.M = value
+while _G.M do wait(0.1)
+
+local args = {
+    [1] = "AddPoint",
+    [2] = "Melee",
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+end
+end)
+
+stat:addToggle("Defense", "", function(value)
+    _G.D = value
+while _G.D do wait(0.1)
+
+local args = {
+    [1] = "AddPoint",
+    [2] = "Defense",
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+end
+end)
+
+stat:addToggle("Sword", "", function(value)
+    _G.S = value
+while _G.S do wait(0.1)
+
+local args = {
+    [1] = "AddPoint",
+    [2] = "Sword",
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+end
+end)
+
+stat:addToggle("Gun", "", function(value)
+    _G.G = value
+while _G.G do wait(0.1)
+
+local args = {
+    [1] = "AddPoint",
+    [2] = "Gun",
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+end
+end)
+
+stat:addToggle("Demon Fruit", "", function(value)
+    _G.DF = value
+while _G.DF do wait(0.1)
+
+local args = {
+    [1] = "AddPoint",
+    [2] = "Demon Fruit",
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+
+
+end
+end)
 
 spawn(function()
    game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
         if _G.Fa then
             checklevel()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[Mons].HumanoidRootPart.CFrame * CFrame.new(0,15,0)            
-            
-            if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-    
+            if game:GetService("Workspace").Enemies[Mons].Humanoid.Health == 0 then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
 local args = {
     [1] = "StartQuest",
     [2] = Q,
     [3] = QN
-}
+}   
 
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 
+elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[Mons].HumanoidRootPart.CFrame * CFrame.new(0,30,15)
+getupvalues(CombatFramework)[2]['activeController']:attack()
 end
 
         end
@@ -106,7 +190,7 @@ spawn(function()
     pcall(function()
         if _G.Fa3 then
 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    v.HumanoidRootPart.Size = Vector3.new(120,60,120)
+    v.HumanoidRootPart.Size = Vector3.new(45,90,45)
 
 v.HumanoidRootPart.CanCollide = false
 end
@@ -114,16 +198,6 @@ end
 end)
         end)
     end)
-
-spawn(function()
-   game:GetService("RunService").RenderStepped:Connect(function()
-    pcall(function()
-        if _G.Fa2 then
-getupvalues(CombatFramework)[2]['activeController']:attack()
-        end
-    end)
-end) 
-end)
 
 spawn(function()
    game:GetService("RunService").RenderStepped:Connect(function()
