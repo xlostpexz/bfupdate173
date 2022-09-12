@@ -5,7 +5,6 @@ coroutine.wrap(function()
     game:GetService("RunService").Stepped:Connect(function()
         if getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack then
             getupvalues(CombatFramework)[2]['activeController'].timeToNextAttack = 0
-            getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 25
         end
     end)
 end)()
@@ -1181,10 +1180,7 @@ spawn(function()
    game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
         if _G.Fa3 then
-for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    v.HumanoidRootPart.Size = Vector3.new(45,90,45)
-
-v.HumanoidRootPart.CanCollide = false
+getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 25
 end
 end
 end)
