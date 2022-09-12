@@ -953,8 +953,10 @@ end
 local DinoWindow = Dino:CreateWindow("Blox Fruits | For New Update")
 local DinoPage = DinoWindow:NewPage("Main")
 local DinoPage1 = DinoWindow:NewPage("Auto Stats")
+local DinoPage2 = DinoWindow:NewPage("Buy Melee")
 local Home = DinoPage:NewSection("Auto Farm")
 local stat = DinoPage1:NewSection("Auto Stats")
+local Buy = DinoPage2:NewSection("Buy Melee")
 
 weapon = {}
 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -1070,6 +1072,81 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 
 
 end
+end)
+
+Buy:CreateButton("Black Leg",function()
+    local args = {
+    [1] = "BuyBlackLeg"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Electro",function()
+    local args = {
+    [1] = "BuyElectro"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Fishman Karate",function()
+    local args = {
+    [1] = "BuyFishmanKarate"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Dragon Claw",function()
+local args = {
+    [1] = "BlackbeardReward",
+    [2] = "DragonClaw",
+    [3] = "2"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("SuperHuman", function()
+    local args = {
+    [1] = "BuySuperhuman"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Sharkman Karate", function()
+    
+local args = {
+    [1] = "BuySharkmanKarate"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Death Step", function()
+    local args = {
+    [1] = "BuyDeathStep"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Electric Claw", function()
+    local args = {
+    [1] = "BuyElectricClaw"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
+Buy:CreateButton("Dragon Talon", function()
+    local args = {
+    [1] = "BuyDragonTalon"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
 spawn(function()
