@@ -1179,7 +1179,7 @@ end)
 spawn(function()
    game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
-        if _G.Fa then
+        if _G.Fa3 then
 getupvalues(CombatFramework)[2]['activeController'].hitboxMagnitude = 25
 end
 end)
