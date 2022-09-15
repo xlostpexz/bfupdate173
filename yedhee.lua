@@ -1148,6 +1148,14 @@ Buy:CreateButton("Dragon Talon", function()
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 end)
 
+Buy:CreateButton("God Human", function()
+    local args = {
+    [1] = "BuyGodhuman"
+}
+
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+
 spawn(function()
    game:GetService("RunService").RenderStepped:Connect(function()
     pcall(function()
