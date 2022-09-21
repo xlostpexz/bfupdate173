@@ -1164,8 +1164,7 @@ spawn(function()
             if game:GetService("Workspace").Enemies[Mons].Humanoid.Health == 0 then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
 elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
+    wait(0.5)
 local args = {
     [1] = "StartQuest",
     [2] = Q,
@@ -1174,9 +1173,11 @@ local args = {
 
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 
-elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then 
+elseif game:GetService("Workspace").Enemies[Mons] then 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemies[Mons].HumanoidRootPart.CFrame * CFrame.new(0,30,15)
 getupvalues(CombatFramework)[2]['activeController']:attack()
+else
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CF
 end
 
         end
