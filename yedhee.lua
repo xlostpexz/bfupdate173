@@ -9,6 +9,8 @@ coroutine.wrap(function()
     end)
 end)()
 
+print("The Win Is XzE")
+
 function checklevel()
     local level = game.Players.LocalPlayer.Data.Level.Value
     if level == 2300 or level <= 2324 then
