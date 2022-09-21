@@ -1,3 +1,5 @@
+print("XzE Hub")
+
 local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
@@ -8,8 +10,6 @@ coroutine.wrap(function()
         end
     end)
 end)()
-
-print("The Win Is XzE")
 
 function checklevel()
     local level = game.Players.LocalPlayer.Data.Level.Value
@@ -1223,6 +1223,7 @@ for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             v2.HumanoidRootPart.CanCollide = false
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * Method
                             sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+v.Humanoid:ChangeState(11)
                         end
                     end
 end
